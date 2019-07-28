@@ -2,8 +2,9 @@
 #define PRINTF
 #include <stdlib.h>
 #include <stdarg.h>
+
 int _putchar(char c);
-void _printf(const char * const format, ...);
+int _printf(const char * const format, ...);
 void print_char(va_list value);
 void print_string(va_list value);
 void print_int(va_list value);
