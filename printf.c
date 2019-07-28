@@ -10,18 +10,15 @@ void _printf(const char * const format, ...)
 	va_list parameters;
 	unsigned int i, j;
 	data optiontype[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_int},
-		{"i", print_int},
-		{"u", print_unsigned_int},
-		/* {"%", porcentagetype} */
+		{"c", print_char}, {"s", print_string}, {"d", print_int},
+		{"i", print_int}, {"u", print_unsigned_int},
+		{"%", print_porcentage}, {NULL, NULL}
 	};
 	va_start(parameters, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == 37)
-			for (j = 0; j < 5; j++)
+			for (j = 0; j < 6; j++)
 			{
 				if (format[i + 1] == *optiontype[j].type)
 				{

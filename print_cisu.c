@@ -30,7 +30,6 @@ void print_int(va_list value)
 		cont = cont / 10;
 	}
 }
-#include "holberton.h"
 /**
  * print_char - print char type
  * @value: data
@@ -43,7 +42,6 @@ void print_char(va_list value)
 	i = va_arg(value, int);
 	_putchar(i);
 }
-#include "holberton.h"
 /**
  * print_string - pring string type
  * @value: data
@@ -59,7 +57,6 @@ void print_string(va_list value)
 	for (i = 0; data[i] != '\0'; i++)
 		_putchar(data[i]);
 }
-#include "holberton.h"
 /**
  * inttype - Print a unsigned int
  * @value - parameter
@@ -85,4 +82,13 @@ void print_unsigned_int(va_list value)
 		data = data % cont;
 		cont = cont / 10;
 	}
+}
+/**
+ * inttype - Print a unsigned int
+ * @value - parameter
+ * Return: Nothing
+ */
+void print_porcentage(va_list value __attribute__((unused)))
+{
+	_putchar(37);
 }
