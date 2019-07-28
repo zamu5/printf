@@ -54,6 +54,8 @@ void print_string(va_list value)
 	char *data = va_arg(value, char*);
 	int i;
 
+	if (data == NULL)
+		data = "(null)";
 	for (i = 0; data[i] != '\0'; i++)
 		_putchar(data[i]);
 }

@@ -1,5 +1,6 @@
 #ifndef PRINTF
 #define PRINTF
+#include <stdlib.h>
 #include <stdarg.h>
 int _putchar(char c);
 void _printf(const char * const format, ...);
