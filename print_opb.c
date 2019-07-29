@@ -16,7 +16,7 @@ int print_octal(va_list value)
 		dec = dec * 10;
 		i = i / 8;
 	}
-	return(oct);
+	return (oct);
 }
 /**
  * print_bin - convert and print bin
@@ -33,16 +33,16 @@ int print_bin(va_list value)
 	if (data == 0)
 	{
 		_putchar('0');
-		return(1);
+		return (1);
 	}
-	for(i = 0; i < 32; i++)
+	for (i = 0; i < 32; i++)
 	{
-		x = ((a<<(31 - i)) & data);
-		if (x>>(31 - i))
+		x = ((a << (31 - i)) & data);
+		if (x >> (31 - i))
 			flag = 1;
 		if (flag)
 		{
-			j = x>>(31 - i);
+			j = x >> (31 - i);
 			_putchar(j + '0');
 			cont++;
 		}
