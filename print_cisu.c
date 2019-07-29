@@ -7,12 +7,14 @@
 int print_int(va_list value)
 {
 	int num = va_arg(value, int);
-	int i, bytes, cdata;
+	int i, bytes, cdata, c;
 	char *buf;
 
+	c = num;
 	if (num < 0)
 		_putchar(45);
-
+	if (num == 0)
+		_putchar('0');
 	cdata = num;
 	for (i = 1; cdata > 9 || cdata < -9; i++)
 		cdata = cdata / 10;
@@ -38,6 +40,8 @@ int print_int(va_list value)
 
 	write(1, buf, bytes);
 	free(buf);
+	if (c < 0)
+		bytes++;
 	return (bytes);
 }
 /**
