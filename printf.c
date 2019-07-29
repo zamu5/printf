@@ -9,15 +9,14 @@ int _printf(const char * const format, ...)
 {
 	va_list parameters;
 	unsigned int i, j, bytes;
-
-	if (!format)
-		return (-1);
-
 	data optiontype[] = {
 		{"c", print_char}, {"s", print_string}, {"d", print_int},
 		{"i", print_int}, {"u", print_unsigned_int},
 		{"%", print_percentage}, {NULL, NULL}
 	};
+
+	if (!format)
+		return (-1);
 	va_start(parameters, format);
 	bytes = 0;
 	i = 0;
