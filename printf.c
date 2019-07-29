@@ -16,7 +16,7 @@ int _printf(const char * const format, ...)
 	data optiontype[] = {
 		{"c", print_char}, {"s", print_string}, {"d", print_int},
 		{"i", print_int}, {"u", print_unsigned_int},
-		{"%", print_porcentage}, {NULL, NULL}
+		{"%", print_percentage}, {NULL, NULL}
 	};
 	va_start(parameters, format);
 	bytes = 0;
