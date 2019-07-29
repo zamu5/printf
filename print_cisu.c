@@ -7,10 +7,9 @@
 int print_int(va_list value)
 {
 	int num = va_arg(value, int);
-	int i, bytes, cdata, c;
+	int i, bytes, cdata;
 	char *buf;
 
-	c = num;
 	if (num < 0)
 		_putchar(45);
 	if (num == 0)
@@ -40,7 +39,7 @@ int print_int(va_list value)
 
 	write(1, buf, bytes);
 	free(buf);
-	if (c < 0)
+	if (cdata < 0)
 		bytes++;
 	return (bytes);
 }
