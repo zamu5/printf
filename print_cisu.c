@@ -1,12 +1,9 @@
-#include <stdlib.h>
-#include <unistd.h>
 #include "holberton.h"
 /**
  * print_int - Print a int
- * @value - parameter
+ * @value: parameter
  * Return: Nothing
  */
-
 int print_int(va_list value)
 {
 	int num = va_arg(value, int);
@@ -75,8 +72,8 @@ int print_string(va_list value)
 	return (i);
 }
 /**
- * inttype - Print a unsigned int
- * @value - parameter
+ * print_unsigned_int - Print a unsigned int
+ * @value: parameter
  * Return: Nothing
  */
 int print_unsigned_int(va_list value)
@@ -94,7 +91,7 @@ int print_unsigned_int(va_list value)
 			_putchar(data + '0');
 		else
 		{
-			_putchar((data / cont)+ '0');
+			_putchar((data / cont) + '0');
 		}
 		data = data % cont;
 		cont = cont / 10;
@@ -103,11 +100,11 @@ int print_unsigned_int(va_list value)
 	return (cont);
 }
 /**
- * inttype - Print a unsigned int
- * @value - parameter
+ * print_porcentage - Print a unsigned int
+ * @value: parameter
  * Return: Nothing
  */
-int print_percentage(va_list value __attribute__((unused)))
+int print_porcentage(va_list value __attribute__((unused)))
 {
 	_putchar(37);
 	return (1);
