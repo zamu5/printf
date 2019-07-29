@@ -8,12 +8,7 @@
 int _printf(const char * const format, ...)
 {
 	va_list parameters;
-	unsigned int i, j, bytes;
-	data optiontype[] = {
-		{"c", print_char}, {"s", print_string}, {"d", print_int},
-		{"i", print_int}, {"u", print_unsigned_int},
-		{"%", print_percentage}, {NULL, NULL}
-	};
+	unsigned int i, bytes, func;
 
 	if (!format)
 		return (-1);
@@ -24,16 +19,17 @@ int _printf(const char * const format, ...)
 	{
 		if (format[i] == '%')
 		{
-			j = 0;
-			while (optiontype[j].type)
+			func = get_print_function(format[i + 1])(parameters);
+			if (func)
 			{
-				if (format[i + 1] == *optiontype[j].type)
-				{
-					bytes += optiontype[j].functiontype(parameters);
-					i = i + 2;
-					break;
-				}
-				j++;
+				bytes += func;
+				i = i + 2;
+			}
+			else
+			{
+				_putchar(format[i]);
+				bytes++;
+				i++;
 			}
 		}
 		else
