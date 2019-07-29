@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <unistd.h>
 #include "holberton.h"
 /**
  * print_int - Print a int
@@ -5,49 +7,57 @@
  * Return: Nothing
  */
 
-void print_int(va_list value)
+int print_int(va_list value)
 {
-	int data = va_arg(value, int);
-	int cont, cdata;
+	int num = va_arg(value, int);
+	int i, bytes, cdata;
+	char *buf;
 
-	if (data < 0)
-	{
+	if (num < 0)
 		_putchar(45);
-		data = data * -1;
-	}
-	cdata = data;
-	for (cont = 1; cdata > 9; cont = cont * 10)
+
+	cdata = num;
+	for (i = 1; cdata > 9 || cdata < -9; i++)
 		cdata = cdata / 10;
-	while (data > 0)
+
+	buf = malloc(sizeof(char) * i);
+
+	bytes = i;
+	i--;
+	while (num != 0)
 	{
-		if (data < 10)
-			_putchar(data + '0');
+		if (num % 10 > 0)
+			buf[i] = (num % 10) + '0';
 		else
-		{
-			_putchar((data / cont)+ '0');
-		}
-		data = data % cont;
-		cont = cont / 10;
+			buf[i] = ((num % 10) * -1) + '0';
+		num /= 10;
+		i--;
 	}
+
+	write(1, buf, bytes);
+	free(buf);
+	return (bytes);
 }
 /**
  * print_char - print char type
  * @value: data
  * Return: Nothing
  */
-void print_char(va_list value)
+int print_char(va_list value)
 {
 	int i;
 
 	i = va_arg(value, int);
 	_putchar(i);
+
+	return (1);
 }
 /**
  * print_string - pring string type
  * @value: data
  * Return: Nothing
  */
-void print_string(va_list value)
+int print_string(va_list value)
 {
 	char *data = va_arg(value, char*);
 	int i;
@@ -56,13 +66,15 @@ void print_string(va_list value)
 		data = "(null)";
 	for (i = 0; data[i] != '\0'; i++)
 		_putchar(data[i]);
+
+	return(i + 1);
 }
 /**
  * inttype - Print a unsigned int
  * @value - parameter
  * Return: Nothing
  */
-void print_unsigned_int(va_list value)
+int print_unsigned_int(va_list value)
 {
 	int data = va_arg(value, int);
 	int cont, cdata;
@@ -82,13 +94,16 @@ void print_unsigned_int(va_list value)
 		data = data % cont;
 		cont = cont / 10;
 	}
+
+	return (cont);
 }
 /**
  * inttype - Print a unsigned int
  * @value - parameter
  * Return: Nothing
  */
-void print_porcentage(va_list value __attribute__((unused)))
+int print_percentage(va_list value __attribute__((unused)))
 {
 	_putchar(37);
+	return (1);
 }
