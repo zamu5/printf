@@ -12,7 +12,8 @@ int print_int(va_list value)
 
 	if (num < 0)
 		_putchar(45);
-
+	if (num == 0)
+		_putchar('0');
 	cdata = num;
 	for (i = 1; cdata > 9 || cdata < -9; i++)
 		cdata = cdata / 10;
@@ -38,6 +39,8 @@ int print_int(va_list value)
 
 	write(1, buf, bytes);
 	free(buf);
+	if (cdata < 0)
+		bytes++;
 	return (bytes);
 }
 /**
