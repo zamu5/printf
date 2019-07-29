@@ -100,11 +100,11 @@ int print_unsigned_int(va_list value)
 	return (cont);
 }
 /**
- * print_porcentage - Print a unsigned int
+ * print_percentage - Print a unsigned int
  * @value: parameter
  * Return: Nothing
  */
-int print_porcentage(va_list value __attribute__((unused)))
+int print_percentage(va_list value __attribute__((unused)))
 {
 	_putchar(37);
 	return (1);
