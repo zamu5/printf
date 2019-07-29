@@ -8,7 +8,7 @@
  * Return: pointer to the function.
  *
  * If the provided format specifier doesn't match with any function, the
- * function will return NULL.
+ * function will return a pointer to the function zero.
  */
 int (*get_print_function(char c))(va_list)
 {
