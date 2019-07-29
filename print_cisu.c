@@ -21,6 +21,11 @@ int print_int(va_list value)
 		cdata = cdata / 10;
 
 	buf = malloc(sizeof(char) * i);
+	if (buf == NULL)
+	{
+		free(buf);
+		return (0);
+	}
 
 	bytes = i;
 	i--;
@@ -67,7 +72,7 @@ int print_string(va_list value)
 	for (i = 0; data[i] != '\0'; i++)
 		_putchar(data[i]);
 
-	return(i + 1);
+	return (i);
 }
 /**
  * inttype - Print a unsigned int
