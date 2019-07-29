@@ -13,7 +13,10 @@ int print_int(va_list value)
 	if (num < 0)
 		_putchar(45);
 	if (num == 0)
+	{
 		_putchar('0');
+		return (1);
+	}
 	cdata = num;
 	for (i = 1; cdata > 9 || cdata < -9; i++)
 		cdata = cdata / 10;
