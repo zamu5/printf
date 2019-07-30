@@ -35,16 +35,18 @@ int print_octal(va_list value)
  */
 int print_pointer(va_list value)
 {
-	unsigned int data;
-	int x, mask, flag = 0, cont = 0;
+	intptr_t data;
+	int x;
+	int mask, flag = 0, cont = 2;
 	char hex[] = {"0123456789abcdef"};
 	char num;
+	char *n = "(nil)";
 
-	data = va_arg(value, unsigned int);
+	data =  va_arg(value, intptr_t);
 	if (data == 0)
 	{
-		_putchar('0');
-		return (1);
+		_printf("%s", n);
+		return (5);
 	}
 	_putchar('0');
 	_putchar('x');
