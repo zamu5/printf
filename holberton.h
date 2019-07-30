@@ -13,6 +13,8 @@ int print_string(va_list value);
 int print_int(va_list value);
 int print_unsigned_int(va_list value);
 int print_percentage(va_list value);
+int print_bin(va_list value);
+int print_octal(va_list value);
 int zero(void);
 int output_error(void);
 
