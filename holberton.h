@@ -15,6 +15,9 @@ int print_unsigned_int(va_list value);
 int print_percentage(va_list value);
 int print_bin(va_list value);
 int print_octal(va_list value);
+int print_hexa(va_list value);
+int print_HEXA(va_list value);
+int print_pointer(va_list value);
 int unknown(void);
 int output_error(void);
 
