@@ -16,7 +16,7 @@ int (*get_print_function(char c))(va_list)
 	data optiontype[] = {
 		{"c", print_char}, {"s", print_string}, {"d", print_int},
 		{"i", print_int}, {"u", print_unsigned_int},
-    {"%", print_percentage}, {"b", print_bin}, {"o", print_octal},
+		{"%", print_percentage}, {"b", print_bin}, {"o", print_octal},
 		{"\0", output_error}, {NULL, zero}
 	};
 
@@ -26,6 +26,8 @@ int (*get_print_function(char c))(va_list)
 		if (*optiontype[i].type == c)
 			return (optiontype[i].functiontype);
 		i++;
+		if (!optiontype[i].type)
+			return (optiontype[i].functiontype);
 	}
 	return (0);
 }
