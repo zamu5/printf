@@ -84,26 +84,33 @@ int print_string(va_list value)
  */
 int print_unsigned_int(va_list value)
 {
-	int data = va_arg(value, int);
-	int cont, cdata;
+	int i, len, r, l;
+	long int  num, numt;
+	unsigned int n = va_arg(value, unsigned int);
 
-	data = data * -1;
-	cdata = data;
-	for (cont = 1; cdata > 9; cont = cont * 10)
-		cdata = cdata / 10;
-	while (data > 0)
+	len = 0;
+	i = 0;
+	r = 1;
+	l = 1;
+	num = n;
+	while (num > 0)
 	{
-		if (data < 10)
-			_putchar(data + '0');
-		else
-		{
-			_putchar((data / cont) + '0');
-		}
-		data = data % cont;
-		cont = cont / 10;
+		num /= 10;
+		i++;
 	}
-
-	return (cont);
+	while (r < i)
+	{
+		l *= 10;
+		r++;
+	}
+	while (l >= 1)
+	{
+		numt = (n / l) % 10;
+		_putchar(numt + '0');
+		len++;
+		l /= 10;
+	}
+	return (len);
 }
 /**
  * print_percentage - Print a unsigned int
