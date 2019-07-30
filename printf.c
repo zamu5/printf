@@ -8,7 +8,8 @@
 int _printf(const char * const format, ...)
 {
 	va_list parameters;
-	unsigned int i, bytes, func;
+	unsigned int i, bytes;
+	int func;
 
 	if (!format)
 		return (-1);
@@ -20,7 +21,12 @@ int _printf(const char * const format, ...)
 		if (format[i] == '%')
 		{
 			func = get_print_function(format[i + 1])(parameters);
-			if (func)
+			if (func == -1)
+			{
+				va_end(parameters);
+				return (-1);
+			}
+			else if (func)
 			{
 				bytes += func;
 				i = i + 2;
