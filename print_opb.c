@@ -46,9 +46,11 @@ int print_pointer(va_list value)
 		_putchar('0');
 		return (1);
 	}
+	_putchar('0');
+	_putchar('x');
 	for (x = (sizeof(void *) * 8); x >= 0; x = x - 4)
 	{
-		mask = (data >> x & 0xFF);
+		mask = (data >> x & 0xF);
 		if (mask)
 			flag = 1;
 		if (flag)
