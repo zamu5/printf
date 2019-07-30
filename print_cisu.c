@@ -84,7 +84,7 @@ int print_string(va_list value)
  */
 int print_unsigned_int(va_list value)
 {
-int i, len, r, l;
+	int i, len, r, l;
 	long int  num, numt;
 	unsigned int n = va_arg(value, unsigned int);
 
