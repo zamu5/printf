@@ -15,10 +15,10 @@ int print_unsigned_int(va_list value);
 int print_percentage(va_list value);
 int print_bin(va_list value);
 int print_octal(va_list value);
-int zero(void);
+int unknown(void);
 int output_error(void);
 
-/*
+/**
  * struct type - struct of type of data
  * @type: type od data
  * @functiontype: pointer to de function
@@ -28,4 +28,5 @@ typedef struct type
 	char *type;
 	int (*functiontype)();
 } data;
+
 #endif

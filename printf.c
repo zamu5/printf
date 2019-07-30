@@ -26,16 +26,10 @@ int _printf(const char * const format, ...)
 				va_end(parameters);
 				return (-1);
 			}
-			else if (func)
+			else
 			{
 				bytes += func;
 				i = i + 2;
-			}
-			else
-			{
-				_putchar(format[i]);
-				bytes++;
-				i++;
 			}
 		}
 		else

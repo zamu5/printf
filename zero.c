@@ -5,7 +5,7 @@
  *
  * Return: zero.
  */
-int zero()
+int unknown(void)
 {
-	return (0);
+	return (2);
 }
