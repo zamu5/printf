@@ -7,8 +7,9 @@
 int print_string_S(va_list value)
 {
 	char *data = va_arg(value, char*);
-	int i, cont = 0, env;
+	int i, cont, env;
 
+	cont = 0;
 	if (data == NULL)
 		data = "(null)";
 	for (i = 0; data[i] != '\0'; i++)
@@ -16,7 +17,7 @@ int print_string_S(va_list value)
 		if (data[i] < 32 || data[i] >= 127)
 		{
 			_putchar('\\');
-			_putchar('X');
+			_putchar('x');
 			cont = cont + 2;
 			env = data[i];
 			if (env < 16)
