@@ -18,7 +18,7 @@ int print_octal(va_list value)
 	for (x = 30; x >= 0; x = x - 3)
 	{
 		mask = (data >> x & 0x7);
-		if (mask)
+		if (mask && flag == 0)
 			flag = 1;
 		if (flag)
 		{
@@ -50,12 +50,12 @@ int print_pointer(va_list value)
 	}
 	_putchar('0');
 	_putchar('x');
-	for (x = (sizeof(void *) * 8); x >= 0; x = x - 4)
+	for (x = (sizeof(void *) * 8) - 4; x >= 0; x = x - 4)
 	{
 		mask = (data >> x & 0xF);
 		if (mask)
 			flag = 1;
-		if (flag)
+		if (flag || mask)
 		{
 			num = hex[mask];
 			_putchar(num);
