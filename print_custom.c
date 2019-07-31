@@ -47,3 +47,32 @@ int print_rot13(va_list value)
 
 	return (i);
 }
+
+/**
+ * print_rev - prints a string backwards
+ * @value: provided string
+ *
+ * Return: size in bytes of the output.
+ */
+int print_rev(va_list value)
+{
+	char *s = va_arg(value, char *);
+	char *reversed;
+	int i, len;
+
+	len = _strlen(s);
+
+	reversed = malloc(sizeof(char) * len);
+	if (reversed == NULL)
+	{
+		free(reversed);
+		return (-1);
+	}
+
+	for (i = 0; len >= 0; i++, len--)
+		reversed[i] = s[len];
+
+	write(1, reversed, i);
+	free(reversed);
+	return(i);
+}
