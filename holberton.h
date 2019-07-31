@@ -6,6 +6,8 @@
 #include <stdint.h>
 
 int _putchar(char c);
+int _strlen(char *s);
+
 int _printf(const char * const format, ...);
 int (*get_print_function(char c))(va_list);
 int print_char(va_list value);
@@ -18,6 +20,10 @@ int print_octal(va_list value);
 int print_hexa(va_list value);
 int print_HEXA(va_list value);
 int print_pointer(va_list value);
+
+int print_string_S(va_list value);
+int print_S_HEXA(unsigned int data);
+
 int unknown(void);
 int output_error(void);
 
