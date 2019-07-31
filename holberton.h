@@ -7,6 +7,7 @@
 
 int _putchar(char c);
 int _strlen(char *s);
+void _strrev(char *s);
 
 int _printf(const char * const format, ...);
 int (*get_print_function(char c))(va_list);
@@ -23,6 +24,7 @@ int print_pointer(va_list value);
 int print_string_S(va_list value);
 int print_S_HEXA(unsigned int data);
 int print_rot13(va_list value);
+int print_rev(va_list value);
 
 
 int unknown(void);
