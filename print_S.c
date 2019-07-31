@@ -16,7 +16,7 @@ int print_string_S(va_list value)
 		if (data[i] < 32 || data[i] >= 127)
 		{
 			_putchar('\\');
-			_putchar('X');
+			_putchar('x');
 			cont = cont + 2;
 			env = data[i];
 			if (env < 16)
