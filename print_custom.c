@@ -60,6 +60,11 @@ int print_rev(va_list value)
 	char *reversed;
 	int i, len;
 
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		return(6);
+	}
 	len = _strlen(s);
 
 	reversed = malloc(sizeof(char) * len);
@@ -74,5 +79,5 @@ int print_rev(va_list value)
 
 	write(1, reversed, i);
 	free(reversed);
-	return(i - 1);
+	return (i - 1);
 }
