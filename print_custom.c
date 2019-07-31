@@ -63,7 +63,7 @@ int print_rev(va_list value)
 	if (s == NULL)
 	{
 		write(1, "(null)", 6);
-		return(6);
+		return (6);
 	}
 	len = _strlen(s);
 
@@ -76,6 +76,8 @@ int print_rev(va_list value)
 
 	for (i = 0; len >= 0; i++, len--)
 		reversed[i] = s[len];
+
+	reversed[i] = 0;
 
 	write(1, reversed, i);
 	free(reversed);
