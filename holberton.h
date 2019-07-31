@@ -20,9 +20,10 @@ int print_octal(va_list value);
 int print_hexa(va_list value);
 int print_HEXA(va_list value);
 int print_pointer(va_list value);
-
 int print_string_S(va_list value);
 int print_S_HEXA(unsigned int data);
+int print_rot13(va_list value);
+
 
 int unknown(void);
 int output_error(void);

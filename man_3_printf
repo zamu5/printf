@@ -1,0 +1,69 @@
+.TH man 3 "30 Jul 2019" "Holberton School" "Project 0x11"
+.SH NAME
+.B _printf
+- converts formatted output.
+.SH SYNOPSIS
+.nf
+.B "#include \(dqholberton.h\(dq"
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.fi
+.PP
+
+.SH DESCRIPTION
+.BR _printf()
+produces a formatted output similarly to the function
+.BR printf()
+from the C standard input/output library
+.BR stdio "(3)"
+The function will producte the output under the control of the
+.I format
+string that specifies how many arguments (provided via variable arguments
+from
+.BR stdarg "(3))"
+will be converted to the
+output and the type for each argument.
+.SS
+The format string
+The format string consists in a character string and it can be composed
+of zero or more directives: ordinary characters that will be printed without
+any change to the standard output, and
+.I conversion specifications
+indicated with the
+.BR %
+character and ending with a
+.IR "conversion specifier" .
+
+The arguments and its types must correspond properly to the conversion 
+specifications provided in the
+.I format
+ string.
+
+.SS
+Conversion specifiers
+A conversion specifier can be applied to a provided argument, it should
+correspond with the data type of the argument:
+.TP
+.BR d ", " i
+Will convert and print an
+.BR int 
+type with signed decimal notation.
+.TP
+.BR c 
+Converts and prints an
+.BR int
+type to its ASCII equivalent, using the 
+unsigned character notation.
+.TP
+.BR s
+Takes a
+.BR "const char *"
+argument (an array of characters). Every character in the array will 
+be printed to the output from start to finish up to (but not including)
+the null terminating byte (\(aq\e0\(aq).
+.TP
+.BR %
+Prints a literal percentage ('%') character.
+
+.SH AUTHORS
+Javier Cortés and Sergio Zamudio

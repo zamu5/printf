@@ -17,9 +17,11 @@ int (*get_print_function(char c))(va_list)
 		{"c", print_char}, {"s", print_string}, {"d", print_int},
 		{"i", print_int}, {"u", print_unsigned_int},
 		{"%", print_percentage}, {"b", print_bin}, {"o", print_octal},
+
 		{"x", print_hexa}, {"X", print_HEXA},
 		{"\0", output_error}, {"p", print_pointer}, {"S", print_string_S},
-		{NULL, unknown}
+		{"R", print_rot13}, {NULL, unknown}
+
 	};
 
 	i = 0;
