@@ -79,7 +79,7 @@ int print_rev(va_list value)
 
 	reversed[i] = 0;
 
-	write(1, reversed, i);
+	write(1, reversed, i - 1);
 	free(reversed);
 	return (i - 1);
 }
