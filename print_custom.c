@@ -74,5 +74,5 @@ int print_rev(va_list value)
 
 	write(1, reversed, i);
 	free(reversed);
-	return(i);
+	return(i - 1);
 }
