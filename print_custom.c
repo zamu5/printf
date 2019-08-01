@@ -77,7 +77,7 @@ int print_rev(va_list value)
 	len--;
 	for (i = 0; len >= 0; i++, len--)
 		reversed[i] = s[len];
-	
+
 	write(1, reversed, i);
 	free(reversed);
 	return (i);
