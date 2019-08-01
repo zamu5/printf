@@ -74,12 +74,11 @@ int print_rev(va_list value)
 		return (-1);
 	}
 
+	len--;
 	for (i = 0; len >= 0; i++, len--)
 		reversed[i] = s[len];
-
-	reversed[i] = 0;
-
-	write(1, reversed, i - 1);
+	
+	write(1, reversed, i);
 	free(reversed);
-	return (i - 1);
+	return (i);
 }
