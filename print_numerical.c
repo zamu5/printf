@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * print_int - Print a int
  * @value: parameter
@@ -46,37 +47,7 @@ int print_int(va_list value)
 		bytes++;
 	return (bytes);
 }
-/**
- * print_char - print char type
- * @value: data
- * Return: Nothing
- */
-int print_char(va_list value)
-{
-	int i;
 
-	i = va_arg(value, int);
-	_putchar(i);
-
-	return (1);
-}
-/**
- * print_string - pring string type
- * @value: data
- * Return: Nothing
- */
-int print_string(va_list value)
-{
-	char *data = va_arg(value, char*);
-	int i;
-
-	if (data == NULL)
-		data = "(null)";
-	for (i = 0; data[i] != '\0'; i++)
-		_putchar(data[i]);
-
-	return (i);
-}
 /**
  * print_unsigned_int - Print a unsigned int
  * @value: parameter
@@ -111,14 +82,4 @@ int print_unsigned_int(va_list value)
 		l /= 10;
 	}
 	return (len);
-}
-/**
- * print_percentage - Print a unsigned int
- * @value: parameter
- * Return: Nothing
- */
-int print_percentage(va_list value __attribute__((unused)))
-{
-	_putchar(37);
-	return (1);
 }
