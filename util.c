@@ -25,9 +25,9 @@ int _strlen(char *s)
  */
 int intlen(int n)
 {
-	int i = 0;
+	int i = 1;
 
-	for (i = 0; n > 9 || n < -9; i++)
+	for (i = 1; n > 9 || n < -9; i++)
 		n = n / 10;
 
 	return (i);

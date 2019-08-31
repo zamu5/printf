@@ -18,7 +18,7 @@ int print_int(va_list value)
 	if (num == 0)
 		return (_putchar('0'));
 
-	i += intlen(num);
+	i += (intlen(num) - 1);
 	while (num != 0)
 	{
 		if (num % 10 > 0)
@@ -29,7 +29,7 @@ int print_int(va_list value)
 		i--;
 	}
 
-	return (write(STDIN_FILENO, buf, _strlen(buf)));
+	return (write(1, buf, _strlen(buf)));
 }
 
 /**
