@@ -7,30 +7,18 @@
  */
 int print_int(va_list value)
 {
-	int num = va_arg(value, int);
-	int i, bytes, cdata;
-	char *buf;
+	int num = va_arg(value, int), i = 0;
+	char buf[SIZE] = {'0'};
 
 	if (num < 0)
-		_putchar(45);
+	{
+		buf[i] = '-';
+		i++;
+	}
 	if (num == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-	cdata = num;
-	for (i = 1; cdata > 9 || cdata < -9; i++)
-		cdata = cdata / 10;
+		return (_putchar('0'));
 
-	buf = malloc(sizeof(char) * i);
-	if (buf == NULL)
-	{
-		free(buf);
-		return (0);
-	}
-
-	bytes = i;
-	i--;
+	i += intlen(num);
 	while (num != 0)
 	{
 		if (num % 10 > 0)
@@ -41,11 +29,7 @@ int print_int(va_list value)
 		i--;
 	}
 
-	write(1, buf, bytes);
-	free(buf);
-	if (cdata < 0)
-		bytes++;
-	return (bytes);
+	return (write(STDIN_FILENO, buf, _strlen(buf)));
 }
 
 /**
@@ -56,7 +40,7 @@ int print_int(va_list value)
 int print_unsigned_int(va_list value)
 {
 	int i, len, r, l;
-	long int  num, numt;
+	long int num, numt;
 	unsigned int n = va_arg(value, unsigned int);
 
 	len = 0;

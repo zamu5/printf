@@ -1,12 +1,16 @@
 #ifndef PRINTF
 #define PRINTF
+
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdint.h>
 
+#define SIZE 1024
+
 int _putchar(char c);
 int _strlen(char *s);
+int intlen(int n);
 void _strrev(char *s);
 
 int _printf(const char * const format, ...);
