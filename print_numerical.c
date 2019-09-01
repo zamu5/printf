@@ -12,8 +12,6 @@ int print_int(va_list value)
 
 	if (num < 0)
 		_print('-');
-	if (num == 0)
-		_print('0');
 
 	i += (intlen(num) - 1);
 	while (i >= 0)
