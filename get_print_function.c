@@ -31,8 +31,8 @@ int (*get_print_function(char c))(va_list)
 		i++;
 		if (!optiontype[i].type)
 		{
-			_puts('%');
-			_puts(c);
+			_print('%');
+			_print(c);
 			return (optiontype[i].functiontype);
 		}
 	}
