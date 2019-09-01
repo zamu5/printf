@@ -18,7 +18,7 @@ int _strlen(char *s)
 }
 
 /**
- * _strlen - returns the number of digits of an integer
+ * intlen - returns the number of digits of an integer
  * @n: provided integer
  *
  * Return: length of the integer.
@@ -28,6 +28,22 @@ int intlen(int n)
 	int i = 1;
 
 	for (i = 1; n > 9 || n < -9; i++)
+		n = n / 10;
+
+	return (i);
+}
+
+/**
+ * uintlen - returns the number of digits of an unsigned integer
+ * @n: provided integer
+ *
+ * Return: length of the integer.
+ */
+int uintlen(unsigned int n)
+{
+	int i = 1;
+
+	for (i = 1; n > 9; i++)
 		n = n / 10;
 
 	return (i);

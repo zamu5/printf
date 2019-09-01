@@ -10,7 +10,7 @@
  * If the provided format specifier doesn't match with any function, the
  * function will return a pointer to the function zero.
  */
-int (*get_print_function(char c))(va_list)
+int (*get_print_function(char c))(va_list)  
 {
 	int i;
 	data optiontype[] = {
@@ -31,8 +31,8 @@ int (*get_print_function(char c))(va_list)
 		i++;
 		if (!optiontype[i].type)
 		{
-			_putchar('%');
-			_putchar(c);
+			_puts('%');
+			_puts(c);
 			return (optiontype[i].functiontype);
 		}
 	}

@@ -9,12 +9,15 @@
 #define SIZE 1024
 
 int _putchar(char c);
+int _print(char c);
 int _strlen(char *s);
 int intlen(int n);
+int uintlen(unsigned int n);
 void _strrev(char *s);
 
 int _printf(const char * const format, ...);
-int (*get_print_function(char c))(va_list);
+int (*get_print_function(char c))(va_list); 
+
 int print_char(va_list value);
 int print_string(va_list value);
 int print_int(va_list value);
@@ -30,6 +33,8 @@ int print_S_HEXA(unsigned int data);
 int print_rot13(va_list value);
 int print_rev(va_list value);
 
+int power(int base, unsigned int exponent);
+int _abs(int n);
 
 int unknown(void);
 int output_error(void);

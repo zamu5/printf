@@ -1,69 +1,50 @@
 #include "holberton.h"
 
 /**
- * print_int - Print a int
- * @value: parameter
- * Return: Nothing
+ * print_int - prints an int
+ * @value: next value from va_list
+ *
+ * Return: amount of bytes written to stdout
  */
 int print_int(va_list value)
 {
 	int num = va_arg(value, int), i = 0;
-	char buf[SIZE] = {'0'};
 
 	if (num < 0)
-	{
-		buf[i] = '-';
-		i++;
-	}
+		_print('-');
 	if (num == 0)
-		return (_putchar('0'));
+		_print('0');
 
 	i += (intlen(num) - 1);
-	while (num != 0)
+	while (i >= 0)
 	{
-		if (num % 10 > 0)
-			buf[i] = (num % 10) + '0';
-		else
-			buf[i] = ((num % 10) * -1) + '0';
-		num /= 10;
+		_print((_abs(num / (power(10, i)) % 10) + '0'));
 		i--;
 	}
 
-	return (write(1, buf, _strlen(buf)));
+	return (0);
 }
 
 /**
- * print_unsigned_int - Print a unsigned int
- * @value: parameter
- * Return: Nothing
+ * print_unsigned_int - prints a unsigned int
+ * @value: next value from va_list
+ *
+ * Return: amount of bytes written to stdout
  */
 int print_unsigned_int(va_list value)
 {
-	int i, len, r, l;
-	long int num, numt;
-	unsigned int n = va_arg(value, unsigned int);
+	unsigned int num = va_arg(value, unsigned int);
+	int i = 0;
 
-	len = 0;
-	i = 0;
-	r = 1;
-	l = 1;
-	num = n;
-	while (num > 0)
+	if (num == 0)
+		_print('0');
+
+	i += (uintlen(num) - 1);
+	while (i >= 0)
 	{
-		num /= 10;
-		i++;
+		_print((num / (power(10, i)) % 10) + '0');
+		i--;
 	}
-	while (r < i)
-	{
-		l *= 10;
-		r++;
-	}
-	while (l >= 1)
-	{
-		numt = (n / l) % 10;
-		_putchar(numt + '0');
-		len++;
-		l /= 10;
-	}
-	return (len);
+
+	return (0);
 }

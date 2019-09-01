@@ -34,11 +34,27 @@ int _printf(const char * const format, ...)
 		}
 		else
 		{
-			_putchar(format[i]);
-			bytes++;
+			bytes = _print(format[i]);
 			i++;
 		}
 	}
 	va_end(parameters);
+	_print(-1);
 	return (bytes);
+}
+
+int _print(char c)
+{
+	static char buf[SIZE];
+	static int i;
+
+	if (c == -1 || i >= SIZE)
+	{
+		write(1, buf, i);
+		i = 0;
+		return (0);
+	}
+	
+	buf[i++] = c;
+	return (i);
 }
