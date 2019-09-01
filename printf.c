@@ -8,13 +8,12 @@
 int _printf(const char * const format, ...)
 {
 	va_list parameters;
-	unsigned int i, bytes;
+	unsigned int i;
 	int func;
 
 	if (!format)
 		return (-1);
 	va_start(parameters, format);
-	bytes = 0;
 	i = 0;
 	while (format[i])
 	{
@@ -27,20 +26,16 @@ int _printf(const char * const format, ...)
 				return (-1);
 			}
 			else
-			{
-				bytes += func;
 				i = i + 2;
-			}
 		}
 		else
 		{
-			bytes = _print(format[i]);
+			_print(format[i]);
 			i++;
 		}
 	}
 	va_end(parameters);
-	_print(-1);
-	return (bytes);
+	return (_print(-1));
 }
 
 int _print(char c)
@@ -52,9 +47,9 @@ int _print(char c)
 	{
 		write(1, buf, i);
 		i = 0;
-		return (0);
+		return (_strlen(buf));
 	}
 	
 	buf[i++] = c;
-	return (i);
+	return (0);
 }
